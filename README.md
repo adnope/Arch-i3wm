@@ -19,11 +19,10 @@ sudo pacman -S ark alacritty fastfetch i3 ksnip picom polybar rofi zsh nm-connec
 yay -S sublime-text-4 blueman-git brave-bin visual-studio-code-bin
 ```
 Oh-my-zsh installation:
-Install zsh:
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-Change default shell to zsh 
+Change default shell to zsh:
 ```
 chsh -s $(which zsh)
 zsh
