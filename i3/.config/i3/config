@@ -213,10 +213,13 @@ client.placeholder       $overlay0 $base  $text    $overlay0  $overlay0
 client.background        $base
 
 # My Config
+for_window [class="Blueman-manager"] floating enable
+for_window [class="ksnip"] floating enable
 
 
 # My Own Keybinds
 bindsym $mod+t exec nemo
+bindsym Control+mod1+Delete exec shutdown 0
 
 # My AutoStart Programs
 exec --no-startup-id blueman-applet

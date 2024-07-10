@@ -30,6 +30,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
+alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias uzsh="source ~/.zshrc"
 alias ff="fastfetch"
 alias c="clear"
@@ -38,6 +39,8 @@ alias cff="clear & fastfetch"
 alias zshconfig="nano .zshrc"
 alias vimzsh="vim .zshrc"
 alias syu="sudo pacman -Syu"
+alias i3config="vim .config/i3/config"
+alias cd="z"
 
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
@@ -46,3 +49,4 @@ export QT4_IM_MODULE=ibus
 export CLUTTER_IM_MODULE=ibus
 ibus-daemon -drx
 
+eval "$(zoxide init zsh)"
