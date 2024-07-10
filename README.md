@@ -14,7 +14,7 @@ makepkg -si
 Packages to properly setup all the dotfiles. I may put all of these into a bash script in the future.
 
 ```
-sudo pacman -S ark alacritty fastfetch i3 ksnip picom polybar rofi zsh nm-connection-editor network-manager-applet xclip spotify-launcher feh
+sudo pacman -S ark alacritty fastfetch i3 ksnip picom polybar rofi zsh nm-connection-editor network-manager-applet xclip spotify-launcher feh stow
 
 yay -S sublime-text-4 blueman-git brave-bin visual-studio-code-bin
 ```
@@ -27,4 +27,12 @@ Change default shell to zsh:
 chsh -s $(which zsh)
 zsh
 source ~/.zshrc
+```
+## Install dotfiles
+First, clone my repo to the home folder
+```
+cd ~
+git clone https://github.com/adnope/Arch-i3wm.git
+cd Arch-i3wm
+stow -S alacritty fastfetch i3 ksnip picom polybar rofi sublime-text zsh
 ```
