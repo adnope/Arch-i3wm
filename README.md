@@ -29,10 +29,13 @@ zsh
 source ~/.zshrc
 ```
 ## Install dotfiles
-First, clone my repo to the home folder
+First, clone my repo to the home folder:
 ```
 cd ~
 git clone https://github.com/adnope/Arch-i3wm.git
+```
+After that, run the command inside the repo folder:
+```
 cd Arch-i3wm
 stow -S alacritty fastfetch i3 ksnip picom polybar rofi sublime-text zsh
 ```
