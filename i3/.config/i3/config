@@ -63,7 +63,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+q kill
@@ -226,9 +226,9 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id alacritty
 exec --no-startup-id brave
 exec --no-startup-id code
-exec --no-startup-id xrandr --output DP-2 --mode 2560x1600 --rate 165
+exec --no-startup-id xrandr --output eDP --mode 2560x1600 --rate 165
 exec --no-startup-id xinput set-prop 17 "libinput Accel Profile Enabled" 0 1 0
 exec --no-startup-id xinput set-prop 12 "libinput Accel Profile Enabled" 0 1 0
 exec --no-startup-id xinput set-prop 17 "libinput Tapping Enabled" 1
 exec --no-startup-id xinput set-prop 17 "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id feh --bg-fill "/home/adnope/Pictures/Wallpapers/arch.png"
+exec --no-startup-id feh --bg-fill "/home/adnope/Pictures/Wallpapers/aa.png"
