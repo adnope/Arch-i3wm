@@ -18,15 +18,6 @@ exec --no-startup-id picom
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
-# kill any hanging polybar processes
-exec_always killall polybar
-exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
-
-## Clipboard Screenshots
-# bindsym Print exec gscreenshot -p -c -s
-bindsym Shift+Print exec gscreenshot -p -c -f ~/Pictures/Screenshots
-bindsym Print exec ksnip -r
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:FiraCode Nerd Font 8
@@ -44,11 +35,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork.
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -176,59 +163,80 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-set $rosewater #f5e0dc
-set $flamingo  #f2cdcd
-set $pink      #f5c2e7
-set $mauve     #cba6f7
-set $red       #f38ba8
-set $maroon    #eba0ac
-set $peach     #fab387
-set $yellow    #f9e2af
-set $green     #a6e3a1
-set $teal      #94e2d5
-set $sky       #89dceb
-set $sapphire  #74c7ec
-set $blue      #89b4fa
-set $lavender  #b4befe
-set $text      #cdd6f4
-set $subtext1  #bac2de
-set $subtext0  #a6adc8
-set $overlay2  #9399b2
-set $overlay1  #7f849c
-set $overlay0  #6c7086
-set $surface2  #585b70
-set $surface1  #45475a
-set $surface0  #313244
-set $base      #1e1e2e
-set $mantle    #181825
-set $crust     #11111b
+# set $rosewater #f5e0dc
+# set $flamingo  #f2cdcd
+# set $pink      #f5c2e7
+# set $mauve     #cba6f7
+# set $red       #f38ba8
+# set $maroon    #eba0ac
+# set $peach     #fab387
+# set $yellow    #f9e2af
+# set $green     #a6e3a1
+# set $teal      #94e2d5
+# set $sky       #89dceb
+# set $sapphire  #74c7ec
+# set $blue      #89b4fa
+# set $lavender  #b4befe
+# set $text      #cdd6f4
+# set $subtext1  #bac2de
+# set $subtext0  #a6adc8
+# set $overlay2  #9399b2
+# set $overlay1  #7f849c
+# set $overlay0  #6c7086
+# set $surface2  #585b70
+# set $surface1  #45475a
+# set $surface0  #313244
+# set $base      #1e1e2e
+# set $mantle    #181825
+# set $crust     #11111b
 
-# target                 title     bg    text      indicator    border
-client.focused           $mantle   $mauve $mantle  $rosewater $mauve
-client.focused_inactive  $overlay0 $base  $text    $rosewater $overlay0
-client.unfocused         $overlay0 $base  $text    $rosewater $overlay0
-client.urgent            $peach    $base  $peach   $overlay0  $peach
-client.placeholder       $overlay0 $base  $text    $overlay0  $overlay0
-client.background        $base
+# Dracula palette
+set $background         #282a36
+set $currentline        #44475a
+set $selection          #44475a
+set $foreground         #f8f8f2
+set $comment            #6272a4
+set $cyan	        #8be9fd
+set $green	        #50fa7b
+set $orange	        #ffb86c
+set $pink	        #ff79c6
+set $purple	        #bd93f9
+set $red	        #ff5555
+set $yellow	        #f1fa8c
+
+
+# target                 title          bg              text            indicator       border
+client.focused           $selection     $mauve          $mantle         $rosewater      $purple
+# client.focused_inactive  $overlay0      $background           $text           $rosewater      $overlay0
+client.unfocused         $overlay0      $background           $text           $rosewater      $overlay0
+# client.urgent            $peach         $background           $peach          $overlay0       $peach
+# client.placeholder       $overlay0      $background           $text           $overlay0       $overlay0
+client.background        $background
 
 # My Config
 for_window [class="Blueman-manager"] floating enable
 for_window [class="ksnip"] floating enable
-
+for_window [class="pavucontrol"] floating enable
 
 # My Own Keybinds
 bindsym $mod+t exec nemo
 bindsym Control+mod1+Delete exec shutdown 0
+bindsym Shift+Print exec gscreenshot -p -c -f ~/Pictures/Screenshots
+bindsym Print exec ksnip -r -c
+bindsym $mod+Mod1+Delete exec shutdown now
 
 # My AutoStart Programs
+exec_always killall polybar
+exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+exec --no-startup-id nm-applet
 exec --no-startup-id ksnip
 exec --no-startup-id blueman-applet
-exec --no-startup-id alacritty
+exec --no-startup-id kitty
 exec --no-startup-id brave
 exec --no-startup-id code
-exec --no-startup-id xrandr --output eDP --mode 2560x1600 --rate 165
-exec --no-startup-id xinput set-prop 17 "libinput Accel Profile Enabled" 0 1 0
-exec --no-startup-id xinput set-prop 12 "libinput Accel Profile Enabled" 0 1 0
-exec --no-startup-id xinput set-prop 17 "libinput Tapping Enabled" 1
-exec --no-startup-id xinput set-prop 17 "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id feh --bg-fill "/home/adnope/Pictures/Wallpapers/aa.png"
+exec --no-startup-id xrandr --output DP-2 --mode 2560x1600 --rate 165
+exec-always --no-startup-id xinput set-prop 11 "libinput Accel Profile Enabled" 0 1 0
+exec-always --no-startup-id xinput set-prop 12 "libinput Accel Profile Enabled" 0 1 0
+exec-always --no-startup-id xinput set-prop 20 "libinput Tapping Enabled" 1
+exec-always --no-startup-id xinput set-prop 20 "libinput Natural Scrolling Enabled" 1
+exec-always --no-startup-id feh --bg-fill "/home/adnope/Pictures/Wallpapers/aa.png"
