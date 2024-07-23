@@ -41,6 +41,9 @@ alias vimzsh="vim .zshrc"
 alias syu="sudo pacman -Syu"
 alias i3config="vim .config/i3/config"
 alias cd="z"
+alias ins="sudo pacman -S"
+alias upd="sudo pacman -Syu"
+alias remv="sudo pacman -Rsc"
 
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
