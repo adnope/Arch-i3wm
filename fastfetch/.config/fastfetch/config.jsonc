@@ -5,8 +5,8 @@
     "padding": {
         "top": 1
     },
-    "color": {"1": "blue"},
-    "color": {"2": "blue"}
+    "color": {"1": ""},
+    "color": {"2": ""}
 },
 "display": {
 "separator": " 󰑃  "
