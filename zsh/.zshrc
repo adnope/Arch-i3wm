@@ -5,7 +5,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # ZSH_THEME="xiong-chiamiov-plus"
-ZSH_THEME="dracula"
+ZSH_THEME="af-magic"
 plugins=( 
     git
     archlinux
@@ -15,15 +15,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Check archlinux plugin commands here
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux
-
-# Display Pokemon-colorscripts
-# Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
-#pokemon-colorscripts --no-title -s -r
-
 # Set-up FZF key bindings (CTRL R for fuzzy history finder)
 eval "$(fzf --zsh)"
+eval "$(starship init zsh)"
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -35,15 +29,15 @@ alias uzsh="source ~/.zshrc"
 alias ff="fastfetch"
 alias c="clear"
 alias h="history"
-alias cff="clear & fastfetch"
-alias zshconfig="nano .zshrc"
-alias vimzsh="vim .zshrc"
+alias zshconfig="nano ~/.zshrc"
+alias vimzsh="vim ~/.zshrc"
 alias syu="sudo pacman -Syu"
-alias i3config="vim .config/i3/config"
+alias i3config="vim ~/.config/i3/config"
 alias cd="z"
 alias ins="sudo pacman -S"
 alias upd="sudo pacman -Syu"
 alias remv="sudo pacman -Rsc"
+alias gp="git pull"
 
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
@@ -52,4 +46,5 @@ export QT4_IM_MODULE=ibus
 export CLUTTER_IM_MODULE=ibus
 ibus-daemon -drx
 
+export EDITOR=vim
 eval "$(zoxide init zsh)"
