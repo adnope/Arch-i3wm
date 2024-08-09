@@ -1,6 +1,5 @@
 for_window [class="^.*"] border pixel 1
 set $mod Mod4
-exec --no-startup-id picom
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 font pango:FiraCode Nerd Font 8
@@ -183,6 +182,7 @@ bindsym Control+Shift+Mod1+2 exec pactl set-default-sink alsa_output.usb-UC02_UC
 bindsym Control+Shift+Mod1+3 exec pactl set-default-sink bluez_output.84_AC_60_1A_A7_04.1 && dunstify --timeout=2000 --icon=lol "  Capsule 3 Pro"
 
 # My AutoStart Programs
+exec_always --no-startup-id picom
 exec_always killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec_always --no-startup-id killall auto_move_cursor
@@ -197,4 +197,4 @@ exec --no-startup-id brave
 exec --no-startup-id kitty
 exec --no-startup-id xrandr --output DP-2 --mode 2560x1600 --rate 165
 exec_always python auto_move_cursor.py
-exec_always feh --bg-fill "/home/adnope/Pictures/Wallpapers/aa.png"
+exec_always feh --bg-fill "/home/adnope/Pictures/Wallpapers/Buildings.png"
